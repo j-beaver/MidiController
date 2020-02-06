@@ -12,7 +12,7 @@
 #endif
 #include <SPI.h>
 
-int MIDI_OUTPUT_CHANNEL = 2;
+int MIDI_OUTPUT_CHANNEL = 12;
 MIDI_CREATE_DEFAULT_INSTANCE();
 
 USB Usb;
@@ -101,9 +101,13 @@ void loop() {
       }
     if (Xbox.getButtonClick(L1)){
  //     Serial.println(F("L1"));
+        MIDI.sendNoteOn(40, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 27, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
+
       }
     if (Xbox.getButtonClick(R1)){
  //     Serial.println(F("R1"));
+        MIDI.sendNoteOn(41, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 27, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
+
       }
 
     if (Xbox.getButtonClick(XBOX)) {
@@ -112,24 +116,17 @@ void loop() {
     }
 
     if (Xbox.getButtonClick(A)){
-        MIDI.sendNoteOn(40, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 24, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
-        delay(30);                // Wait for 10 ms
-        MIDI.sendNoteOff(40, 0, MIDI_OUTPUT_CHANNEL); // Stop the note
+        MIDI.sendNoteOn(36, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 24, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
     }  
     if (Xbox.getButtonClick(B)){
-        MIDI.sendNoteOn(41, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 25, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
-        delay(30);                // Wait for 10 ms
-        MIDI.sendNoteOff(41, 0, MIDI_OUTPUT_CHANNEL); // Stop the note
+        MIDI.sendNoteOn(37, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 25, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
     } 
     if (Xbox.getButtonClick(X)){
-        MIDI.sendNoteOn(42, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 26, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
-        delay(30);                // Wait for 10 ms
-        MIDI.sendNoteOff(42, 0, MIDI_OUTPUT_CHANNEL); // Stop the note
+        MIDI.sendNoteOn(38, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 26, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
+
     } 
     if (Xbox.getButtonClick(Y)){
-        MIDI.sendNoteOn(43, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 27, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
-        delay(10);                // Wait for 10 ms
-        MIDI.sendNoteOff(43, 0, MIDI_OUTPUT_CHANNEL); // Stop the note
+        MIDI.sendNoteOn(39, 127, MIDI_OUTPUT_CHANNEL);    // Send a Note (pitch 27, velo 127 on channel $MIDI_OUTPUT_CHANNEL)
     } 
  }  delay(1);
 }
